@@ -1,0 +1,21 @@
+h1. Amazon Simple Queue and ActionMailer
+
+h2. Requirements
+
+Requires RightAws Gem
+
+h2. Adding mails to the queue
+
+<code>
+	FeedbackNotifier.enqueue(MAIL_QUEUE, :alert, @feedback)
+</code>
+
+h2. Delivering mails
+
+<code>
+	AwsSqs::Mail.process(MAIL_QUEUE)
+</code>
+
+h2. Versions
+
+* 0.1.0: Initial release
