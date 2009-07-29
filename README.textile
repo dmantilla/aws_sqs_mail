@@ -2,7 +2,7 @@ h1. Amazon Simple Queue and ActionMailer
 
 h2. Requirements
 
-Requires RightAws Gem
+Requires RightAws Gem http://rightscale.rubyforge.org/right_aws_gem_doc/
 
 h2. Adding mails to the queue
 
