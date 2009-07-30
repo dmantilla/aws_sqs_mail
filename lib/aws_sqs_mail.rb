@@ -18,7 +18,7 @@ module ActionMailer
       
       if deliver_now
         self.deliver(tmail_obj)
-        RAILS_DEFAULT_LOGGER.warn "[MAIL NOT ENQUEUED] FROM: #{tmail_obj.from} TO: #{tmail_obj.to.join(',')} SUBJECT: #{tmail_obj.subject} SIZE:#{defined?(yaml_obj) ? yaml_obj.size : 'undetermined'}"
+        RAILS_DEFAULT_LOGGER.warn "[MAIL NOT ENQUEUED] FROM: #{tmail_obj.from} TO: #{tmail_obj.to.join(',')} SUBJECT: #{tmail_obj.subject}"
       end
       
       tmail_obj
