@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |s|
   s.name     = "aws_sqs_mail"
-  s.version  = "0.1.2"
+  s.version  = "0.1.3"
   s.date     = "2009-07-29"
   s.summary  = "Adds an enqueue method to ActionMailer::Base, this adds the message to Amazon SQS which can be delivered later"
   s.email    = "daniel@celect.org"

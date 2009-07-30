@@ -8,7 +8,7 @@ module ActionMailer
         yaml_obj = YAML::dump(tmail_obj)
         if yaml_obj.size < 8192
           sqs_queue.push yaml_obj
-          RAILS_DEFAULT_LOGGER.info "[MAIL ENQUEUED] FROM: #{tmail_obj.from} TO: #{tmail_obj.to.join(',')} SUBJECT: #{tmail_obj.subject}"
+          RAILS_DEFAULT_LOGGER.info "[MAIL ENQUEUED] FROM: #{tmail_obj.from} TO: #{tmail_obj.to ? tmail_obj.to.join(',') : 'nobody'} SUBJECT: #{tmail_obj.subject}"
         else
           deliver_now = true
         end
@@ -18,7 +18,7 @@ module ActionMailer
       
       if deliver_now
         self.deliver(tmail_obj)
-        RAILS_DEFAULT_LOGGER.warn "[MAIL NOT ENQUEUED] FROM: #{tmail_obj.from} TO: #{tmail_obj.to.join(',')} SUBJECT: #{tmail_obj.subject}"
+        RAILS_DEFAULT_LOGGER.warn "[MAIL NOT ENQUEUED] FROM: #{tmail_obj.from} TO: #{tmail_obj.to ? tmail_obj.to.join(',') : 'nobody'} SUBJECT: #{tmail_obj.subject}"
       end
       
       tmail_obj
